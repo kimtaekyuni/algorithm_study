@@ -9,8 +9,8 @@ for a in range(N-7): #시작지점 설정 (가로 세로니까 a, b로)
     for b in range(M-7):
         draw1 = 0 #시작점이 B인경우 
         draw2 = 0 #시작점이 W인경우 
-        for i in range(a, a+8):
-            for j in range(b, b+8):
+        for i in range(a, a+8): #시작지점
+            for j in range(b, b+8): #시작지점
                 if (i+j) % 2 == 0: 
                     if original[i][j] != 'W':
                         draw1 += 1
