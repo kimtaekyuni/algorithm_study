@@ -1,3 +1,12 @@
+# 경우의 수 2개 1)  c1, c2 순서 / 2) c2, c1 순서 
+# 각 포인트까지의 최소값 구하고 더하기 ㄱㄱ
+
+#situation 1) 1에서 v1, v2, N 순서 
+
+#1부터 v1 최단거리 
+
+
+
 #입력칸 시작
 import sys
 import heapq
@@ -42,20 +51,8 @@ c1_path = original_distance[c1] + c1_distance[c2] + c2_distance[N]
 c2_path = original_distance[c2] + c2_distance[c1] + c1_distance[N]
 
 result = min(c1_path, c2_path)
-print(result if result < INF else -1)
+print(result if result < INF else -1)  #음의 간선으로 인해 순환 있을 때는 -1 
 
 
 #입력칸 끝
-
-# 경우의 수 2개 1)  c1, c2 순서 / 2) c2, c1 순서 
-# 각 포인트까지의 최소값 구하고 더하기 ㄱㄱ
-
-#situation 1) 1에서 v1, v2, N 순서 
-
-#1부터 v1 최단거리 
-
-
-
-
-
 
