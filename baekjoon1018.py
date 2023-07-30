@@ -9,8 +9,8 @@ for a in range(N-7): #시작지점 설정 (가로 세로니까 a, b로)
     for b in range(M-7):
         draw1 = 0 #시작점이 B인경우 
         draw2 = 0 #시작점이 W인경우 
-        for i in range(a, a+8): #시작지점
-            for j in range(b, b+8): #시작지점
+        for i in range(a, a+8): # 한 줄씩 비교하며 draw 값 늘리기
+            for j in range(b, b+8): 
                 if (i+j) % 2 == 0: 
                     if original[i][j] != 'W':
                         draw1 += 1
@@ -21,6 +21,7 @@ for a in range(N-7): #시작지점 설정 (가로 세로니까 a, b로)
                         draw1 += 1
                     if original[i][j] != 'W':
                         draw2 += 1
-        count.append(min(draw1, draw2))
+        count.append(min(draw1, draw2)) #첫 칸이 흰색이거나 검은색인 경우만 존재 -> 두 가지 경우 count하고 min값 업로드
+        
 
 print(min(count))              
