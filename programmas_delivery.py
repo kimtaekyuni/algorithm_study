@@ -56,9 +56,9 @@ def solution(cap, n, deliveries, pickups):
             deliveries.pop()
         while pickups and pickups[-1] == 0 :
             pickups.pop()
-        answer += max(len(deliveries), len(pickups))*2
+        answer += max(len(deliveries), len(pickups))*2 # 어쨌든 배달하든 줍든 가야하니까. pop 통해서 뒤에서 0의 값은 제외하고 남김.
         
-        while deliveries and deliver_cap > 0:
+        while deliveries and deliver_cap > 0: # pop으로 마지막 요소들 box에 저장해서. deliver_cap과 pickup_cap 줄이기 
             box = deliveries.pop()
             if box <= deliver_cap :
                 deliver_cap -= box
@@ -67,10 +67,18 @@ def solution(cap, n, deliveries, pickups):
                 break
         while pickups and pickup_cap > 0 :
             box = pickups.pop()
-            if box <= pickup_cap :
-                pickup_cap -= box
-            else :
-                pickups.append(box - pickup_cap)
-                break
-        
-    return answer
+            if box <= pickup_cap :  
+                pickup_cap -= box 
+            else : 
+                pickups.append(box - pickup_cap) 
+                break 
+         
+    return answer 
+
+n= int(input())
+cap = int(input())
+deliveries = list(map(int, input().split()))
+pickups = list(map(int, input().split()))
+
+result = solution(cap, n, deliveries, pickups)
+print(result)
