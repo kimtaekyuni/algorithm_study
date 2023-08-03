@@ -21,6 +21,7 @@ for a in range(N-7): #시작지점 설정 (가로 세로니까 a, b로)
                         draw1 += 1
                     if original[i][j] != 'W':
                         draw2 += 1
+                        
         count.append(min(draw1, draw2)) #첫 칸이 흰색이거나 검은색인 경우만 존재 -> 두 가지 경우 count하고 min값 업로드
         
 

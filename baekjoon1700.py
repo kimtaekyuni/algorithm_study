@@ -22,8 +22,8 @@ def find_latest(idx): #다 플러그에 넣으면서 max_idx값 업로드하면�
     return result
 
 for idx, num in enumerate(elec_list): # idx는 요소 순서, num에는 요소값 들어감
-    plug.add(num) # 지금 꽂아야 하는 거  없음 추가. plug가 set이라서 발생..
-    if len(plug) > N: # 꽂아야 하는 물품 확인 (없으면 바로 print(cnt)하면 됨)
+    plug.add(num) # 지금 꼽아야 하는 거  없음 추가. plug가 set이라서 발생..
+    if len(plug) > N: # 꼽아야 하는 물품 확인 (없으면 바로 print(cnt)하면 됨)
         cnt += 1 # 꼽아야 하는 물품이 콘센트 총 가능 수 보다 많음으로 꽂기
         lastest_used = find_latest(idx) # 제일 마지막에 사용하는 것 찾기
         plug.discard(lastest_used) #제일 마지막에 재사용하는 것 삭제
