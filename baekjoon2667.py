@@ -23,16 +23,15 @@ def bfs(i, j):
                 cnt += 1
     return cnt
 
+house = [] # cnt 값 넣을 리스트
 
-
-
-house = []
-
-for i in range(N):
-    for j in range(N):
-        if apt[i][j] == 1:
+for i in range(N): 
+    for j in range(N): 
+        if apt[i][j] == 1: #만약 아파트가 있다면 bfs함수 실행
             house.append(bfs(i,j)) # 반환값을 결과값 리스트에 추가
 
 print(len(house)) # 결과값 리스트의 원소 개수 출력 
 house.sort() #정렬
 for i in house: print(i) # 정렬된 원소 하나씩 출력 
+
+print(apt)

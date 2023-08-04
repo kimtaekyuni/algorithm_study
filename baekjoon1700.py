@@ -3,7 +3,7 @@ if N >= K: # 콘센트 넣는게 총 넣어야 하는 경우보다 많을 때는
     print(0)
     exit()
 
-elec_list = list(map(int, input().split()))
+elec_list = list(map(int, input().split())) # 넣어야 하는 콘센트 입력 
 
 plug = set() #중복되지 않은 고유한 원소들로 이루어진 집합. 
 cnt = 0 
@@ -11,13 +11,13 @@ cnt = 0
 def find_latest(idx): #다 플러그에 넣으면서 max_idx값 업로드하면서 수정 
     result = 0
     max_idx = -1 #max_idx가 0인 경우 그 값의 idx값이 넘어가야 하므로 초기값을 -1로 설정. -100으로 하든 뭘로 하든 상관 x
-    for num in plug : 
+    for num in plug : # plug요소 하나씩 num에 넣으면서 
         try :
-            num_idx = elec_list[idx:].index(num)
+            num_idx = elec_list[idx:].index(num) # idx수 이후 요소부터 num 이 등장하는 제일 빠른 수
         except:
-            num_idx = K
-        if max_idx < num_idx : 
-            result, max_idx = num, num_idx 
+            num_idx = K #마지막일 때 예외 
+        if max_idx < num_idx : # 제일 멀리 있는 idx 계속 찾기 
+            result, max_idx = num, num_idx # 값 업로드 
 
     return result
 

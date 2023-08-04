@@ -51,21 +51,22 @@ def deliverytruck(n):
 def solution(cap, n, deliveries, pickups):
     answer = 0
     while deliveries or pickups : # if deliveries or pickups is not 0, this roop continues. 
-        deliver_cap, pickup_cap = cap, cap
-        while deliveries and deliveries[-1] == 0 :
-            deliveries.pop()
-        while pickups and pickups[-1] == 0 :
-            pickups.pop()
+        deliver_cap, pickup_cap = cap, cap #both deliver_cap, pickup_cap reset 
+        while deliveries and deliveries[-1] == 0 : #'deliveries exists and the last element of it is 0
+            deliveries.pop() #discard
+        while pickups and pickups[-1] == 0 : #same logic (line 55)
+            pickups.pop() #discard
         answer += max(len(deliveries), len(pickups))*2 # 어쨌든 배달하든 줍든 가야하니까. pop 통해서 뒤에서 0의 값은 제외하고 남김.
-        
+        #-> max len of deliveries, pickups
+
         while deliveries and deliver_cap > 0: # pop으로 마지막 요소들 box에 저장해서. deliver_cap과 pickup_cap 줄이기 
             box = deliveries.pop()
             if box <= deliver_cap :
                 deliver_cap -= box
             else :
-                deliveries.append(box - deliver_cap)
-                break
-        while pickups and pickup_cap > 0 :
+                deliveries.append(box - deliver_cap) # put  rest data in deliveries
+                break # stop the logic
+        while pickups and pickup_cap > 0 : 
             box = pickups.pop()
             if box <= pickup_cap :  
                 pickup_cap -= box 
@@ -75,10 +76,11 @@ def solution(cap, n, deliveries, pickups):
          
     return answer 
 
-n= int(input())
-cap = int(input())
-deliveries = list(map(int, input().split()))
-pickups = list(map(int, input().split()))
+n= int(input()) #n은 배송해야 할 주문의 개수 
+cap = int(input()) #cap은 트럭이 한 번에 운반 가능한 최대 박스 수 
+deliveries = list(map(int, input().split())) #배송해야 할 주문의 개수를 담은 리스트
+pickups = list(map(int, input().split())) # 줍기로 얻은 주문의 박스 수를 담은 리스트
 
+#결과값 출력
 result = solution(cap, n, deliveries, pickups)
 print(result)
